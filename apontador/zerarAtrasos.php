@@ -1,21 +1,14 @@
 <?php 
-include 'conexao.php';
+include '../conexao.php';
 $query2 = "SELECT * FROM alunos";
-$dados = mysql_query($query2,$conexao);
-
+$dados = mysqli_query($conexao,$query2);
 $query3 = "SELECT * FROM atraso";
-$dados = mysql_query($query3,$conexao); 
+$dados = mysqli_query($conexao,$query3); 
 $situacao = 1;
 
-
 $query = "UPDATE atraso SET antigo = 1";
-mysql_query($query) or die($query."<br>".mysql_error());
-
+mysqli_query($conexao,$query) or die(mysql_error($conexao));
 $query = "UPDATE alunos SET qtdAtraso = 0";
-mysql_query($query) or die($query."<br>".mysql_error());
-
+mysqli_query($conexao,$query) or die(mysql_error($conexao));
 header('Location: index.php');
-
-
-
 ?>

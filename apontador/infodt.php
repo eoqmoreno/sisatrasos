@@ -38,7 +38,7 @@ include '../conexao.php';
 $query = "SELECT * FROM detes ORDER BY nome";
 $dados = mysqli_query($conexao,$query); 
 
-while($row=mysqli_fetch_array($dados,MYSQL_ASSOC)) 
+while($row=mysqli_fetch_array($dados)) 
 {
 
 $url_alterar = "editar.php?id=".$row["id"];

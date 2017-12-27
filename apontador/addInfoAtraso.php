@@ -1,15 +1,5 @@
-<style>
-	body {
-		height: auto !important;
-		font-size: 20px;
-		font-family: 'Bitter', serif;
-		color: #fff;
-	}
-
-</style>
-
-	<script type="text/javascript" src="jquery-2.2.4.js"></script> <script type="text/javascript" src="jquery.mask.min.js"></script>
- <script>
+<script type="text/javascript" src="jquery-2.2.4.js"></script> <script type="text/javascript" src="jquery.mask.min.js"></script>
+<script>
 
  $(document).ready(function() {
                 $("#motivo").hide();

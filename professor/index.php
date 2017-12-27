@@ -10,6 +10,7 @@ $nome = $row['nome'];
 $curso = $row['curso'];
 $img = $row['imagem'];
 $serie = $row['serie'];
+$tipo = "asd";
 
 setcookie("cursoDT", $curso);
 setcookie("serieDT", $serie);

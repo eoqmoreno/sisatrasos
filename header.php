@@ -34,7 +34,7 @@
     <span class="fa fa-bars laranja"></span>
   </button>
 <?php
-if($nome != null){
+if(isset($nome) &&$nome != null){
 if($tipo == "aluno"){
 echo '<div class="collapse navbar-collapse text-center border-radius border-branca p-1" id="navbarNav">
                  <script>

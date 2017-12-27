@@ -5,9 +5,6 @@ include '../header.php';
 
 $serie = $_COOKIE['serieDT'];
 $curso = $_COOKIE['cursoDT'];
-
-setcookie("serie", $serie);
-setcookie("curso", $curso);
 ?>
 
 <div id="alunos">
