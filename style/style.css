@@ -1,0 +1,193 @@
+:root{
+	--verde: #39922b;
+	--bege: #f5eed9;
+	--laranja: #f0961c;
+        --cinza: #6d6d6d;
+        --vermelho: #ff0000;
+}
+@font-face {
+    font-family: helvetica;
+    src:  url(font/helvetica.otf);
+}
+@font-face {
+    font-family: helveticalg;
+    src:  url(font/helveticalg.otf);
+}
+body{
+font-family: helvetica !important;
+}
+button{
+font-family: helvetica !important;
+}
+.helvetica{
+font-family: helvetica !important;
+}
+.helveticalg{
+font-family: helveticalg !important;
+}
+/* Body Img */
+.img-body{
+	background-image: url("../img/bg.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center;
+}
+
+/* Background */
+.bg-verde{
+        background-color: var(--verde) !important;
+}
+.bg-bege{
+        background-color: var(--bege) !important;
+}
+.bg-branco{
+	background-color: white !important;
+}
+.bg-degrade{
+	background: linear-gradient(var(--cinza), var(--verde));
+}
+.bg-degrade-cinza{
+        background: linear-gradient(var(--cinza), #ffffff);
+}
+.bg-laranja{
+	background-color: var(--laranja) !important;
+}
+.bg-transparente{
+        background:none;
+}
+.bg-cinza{
+        background: #4d4d4d !important;
+}
+/* Border */
+.border-radius{
+	border-radius: 10px;
+}
+.border-top-verde{
+	border-top: 1px solid var(--verde);
+}
+.border-top-laranja{
+	border-top: 1px solid var(--laranja);
+}
+.border-top-cinza{
+	border-top: 10px solid var(--cinza) !important;
+}
+.border-bottom-branco{
+	border-bottom: 2px solid white;
+}
+.border-verde{
+	border: solid 2px var(--verde);
+}
+.border-cinza{
+	border: solid 1px var(--cinza);
+}
+.border-laranja{
+	border: solid 1px var(--laranja)!important;
+}
+.border-branca{
+	border: solid 1px white!important;
+}
+
+/* Ponteiros */
+.pointer{
+        cursor:pointer;
+}
+.default{
+        cursor:default;
+}
+
+/* Text Forms */
+.text-bold{
+	text-transform: uppercase !important;
+}
+
+
+/* Text Size*/
+.text-vinte{
+	font-size: 20px !important;
+}
+.text-dez{
+	font-size: 10px !important;
+}
+.text-quarenta{
+	font-size: 40px !important;
+}
+
+
+
+/* Text Color */
+.verde{
+	color:var(--verde) !important;
+}
+.branco{
+	color: white !important;
+}
+.laranja{
+	color: var(--laranja) !important;
+}
+.cinza{
+        color: var(--cinza) !important;
+}
+.vermelho{
+        color: var(--vermelho) !important;
+}
+
+/* Image */
+.img-vinte{
+	width: 300px;
+}
+.img-dez{
+	width: 150px;
+}
+.img-foto{
+    border-radius: 300px;
+    width: 40px;
+    background: white;
+    height: 40px;
+}
+
+/* Box-shadow */
+.shadow{
+	box-shadow: 3px 1px 10px 0px #e9e9e9;
+}
+
+/* Margin 50px */
+.mt-50{
+	margin-top: -66px;
+}
+.mr-8{
+        margin-right: 125px !important;
+}
+.mb-6{
+        margin-bottom: 100px !important;
+}
+
+
+/* Width */
+.w-content{
+	width: fit-content !important;
+}
+
+/* Botões efeitos*/
+.voltar:hover {
+        color:var(--bege) !important;
+}
+.procurar:hover{
+        background-color: var(--laranja) !important;
+        color: var(--bege) !important;
+}
+
+/* Select-user */
+.select-user{
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+/* list-itens */
+.list-inline-item {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 15px!important;
+    }
