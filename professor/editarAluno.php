@@ -1,9 +1,9 @@
 <?php 
-include 'conexao.php';
+include '../conexao.php';
+include '../header.php';
 
 ?>
-	<script type="text/javascript" src="jquery-2.2.4.js"></script> <script type="text/javascript" src="jquery.mask.min.js"></script>
- <script>
+<script>
 		 jQuery(function($){
 			  $('#telefone').mask('(00) 00000-0000');
 			  $('#telefone2').mask('(00) 00000-0000');
@@ -12,17 +12,13 @@ include 'conexao.php';
 		});
 	</script>
 
-		<link rel="stylesheet" type="text/css" href="css/estilo.css">
-
 <?php 
-
-
 $id = $_REQUEST["id"];
 
 $query = "SELECT * FROM alunos WHERE id=".$id;
 
-$dados = mysql_query($query);
-$resultados = mysql_fetch_object($dados);
+$dados = mysqli_query($conexao,$query);
+$resultados = mysqli_fetch_object($dados);
 $alterar_nome = $resultados->nome;
 $alterar_serie = $resultados->serie;
 $alterar_curso = $resultados->curso;
@@ -36,64 +32,8 @@ $alterar_numeroSige = $resultados->numeroSige;
 
 
 ?>
-
-
-<style>
-.nossoo {
-    width: 500px;
-    margin: 0 auto;
-}
-label {
-    width: 97px;
-    display: inline-block;
-    text-align: -webkit-right;
-}
-
-	h1 {
-    color: #fff;
-    text-align: center;
-    font-family: 'Bitter', serif;
-    text-transform: uppercase;
-}
-input.levar {
-    background: #84cae4;
-    border: 0;
-    color: black;
-    outline: none;
-    padding: 13px;
-    width: 341px;
-}
-form.add {
-    text-align: -webkit-center;
-}
-
-</style>
-
 <a class="sair" href="JavaScript: window.history.back();">Voltar</a> 
 
-<style type="text/css">
-.sair {
-    font-family: 'Bitter', serif;
-    color: white;
-    background: #43add4;
-    padding: 7px;
-    text-decoration: none;
-    border-bottom: 2px solid;
-}
-
-
-.sair:hover {
-    font-family: 'Bitter', serif;
-    color: white;
-    background: rgb(99, 198, 234);
-    padding: 7px;
-    border-bottom: 2px solid #43add4;
-}
-</style>
-
-
-<link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 <div class="nossoo">
 
 <h1> EDITAR ALUNO </h1>
@@ -111,7 +51,6 @@ form.add {
 	switch ($alterar_serie) {
 		case 1:
 			echo "
-
 <label>Série:</label>   
 								
 								1°</a><input type='radio' name='serie' value='1' checked>

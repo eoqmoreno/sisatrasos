@@ -25,9 +25,7 @@
 								1°<input type="radio" name="serie" value="1">
 								2°<input type="radio" name="serie" value="2">
 								3°<input type="radio" name="serie" value="3" checked="">
-								
 							<br><br>
-
 	<label>Curso:</label> 
 								<select class="levar" name="curso">
 									<option>Informatica</option>
@@ -36,8 +34,6 @@
 									<option>Libras</option>
 									<option>Hospedagem</option>
 									</select>
-							
-
 	<br><br>
 	<label>RG:</label> <input type="text" name="rg" class="levar" id="rg">
 	<br><br>

@@ -1,5 +1,5 @@
 <?php 
-include 'conexao.php';
+include '../conexao.php';
 
 ?>
 
@@ -24,17 +24,12 @@ $telAluno = $_REQUEST['telAluno'];
 $telResp = $_REQUEST['telResponsavel'];
 $email =  $_REQUEST['email'];
 
-
 $imagem = $_FILES["image"];
 
 if($imagem != NULL) {
-
 	$nomeFinal = time().'.jpg';
-	if (move_uploaded_file($imagem['tmp_name'], $nomeFinal)) {
-		$tamanhoImg = filesize($nomeFinal); 
-		$mysqlImg = addslashes(fread(fopen($nomeFinal, "r"), $tamanhoImg));
-
-
+	$local = '../fotos/aluno/'.$numeroSige.'.png';
+	copy($imagem,$local);
 }
 
 if(isset($mysqlImg)) {
@@ -44,12 +39,6 @@ else {
 $query = "UPDATE alunos SET nome='".$nome."',curso='".$curso."',serie='".$serie."' ,rg='".$rg."',cpf='".$cpf."',telaluno='".$telAluno."' ,telresponsavel='".$telResp."' ,email='".$email."',numeroSige='".$numeroSige."' WHERE id=".$id;
 }
 }
-
-
-
-
-
-
-mysql_query($query) or die($query."<br>".mysql_error());
+mysqli_query($conexao,$query) or die(mysqli_error($conexao));
  header('Location: minhaTurma.php');
 ?>
