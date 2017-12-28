@@ -30,7 +30,6 @@ $dados = mysqli_query($conexao,$query);
 
 
 if ($situacao>=1) {
-
     echo "
 <tr>
     <th>SIGE</th> 
@@ -40,8 +39,6 @@ if ($situacao>=1) {
   </tr>
 
    <tr>";
-
-
     
 while($row=mysqli_fetch_array($dados)) {
      $url_apagar = "apagarAtraso.php?id=".$row["id"]."&numeroSige=".$row['numeroSige'];
@@ -51,27 +48,14 @@ echo '<td>'.$row["data"] . '</td>';
 
 if($row['motivo'] != "Falta nao justificada") 
 echo '<td>SIM</td><td><a href="'.$url_apagar.'">Excluir Atraso</a></td></tr>';
-
 else
 echo '<td>NAO</td><td><a href="'.$url_apagar.'">Excluir Atraso</a></td></tr>';
 }
-
-
     echo '</table><center><span><a href="marcarReu.php">Marcar Reunião</a></span></center>';
-
-
 }
 else if($situacao==0) {
     echo "<h1><center>NENHUM ATRASO</center></h1>";
 }
-
-
-
-
-
-
-
-
 ?>
 </table>
 
@@ -98,7 +82,7 @@ $dados = mysqli_query($conexao,$query1);
 
 
     
-while($row=mysqli_fetch_array($dados,MYSQL_ASSOC)) {
+while($row=mysqli_fetch_array($dados)) {
      $url_apagar = "apagarAtraso.php?id=".$row["id"]."&numeroSige=".$row['numeroSige'];
 echo '<td>'.$row["numeroSige"] . '</td>';
 echo '<td>'.$row["horario"] . '</td>';
@@ -111,14 +95,6 @@ else
 echo '<td>NAO</td><td><a href="'.$url_apagar.'">Excluir Atraso</a></td></tr>';
 
 }
-    
-
-
-
-
-
-
-
 ?>
 
 </table>

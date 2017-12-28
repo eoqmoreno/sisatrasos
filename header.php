@@ -4,9 +4,7 @@
 <!-- Responsividade -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
 <link rel="stylesheet" type="text/css" href="../style/style.css">
-
 
 <link rel="stylesheet" href="../style/bootstrap.min.css">
 <link rel="stylesheet" href="../style/bootstrap.min.css.map">
@@ -16,18 +14,13 @@
 <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
 
 <script src="../js/jquery-3.2.1.slim.min.js"></script>
-
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/bootstrap.js"></script>
 
 <title>Adicionar Aluno</title>
 
 <nav class="navbar navbar-toggleable-md bg-cinza border-bottom-branco">
-<!--
-<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="fa fa-bars branco" aria-hidden="true"></span>
-</button>
--->
+
 <img class="img-vinte m-0 p-0" src="../img/logoPro.png">
 
 <button class="navbar-toggler border-radius border-laranja" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
