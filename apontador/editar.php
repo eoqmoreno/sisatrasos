@@ -1,42 +1,23 @@
 <?php 
-include 'conexao.php';
-
-?>
-
-
-<?php 
-
+include '../conexao.php';
 
 $id = $_REQUEST["id"];
 
-$query = "SELECT * FROM detes WHERE id=".$id;
+$query = "SELECT * FROM professor WHERE id=".$id;
 
-$dados = mysql_query($query);
-$resultados = mysql_fetch_object($dados);
-$alterar_nome = $resultados->nome;
-$alterar_serie = $resultados->serie;
-$alterar_curso = $resultados->curso;
-$alterar_telefone = $resultados->telefone;
-$alterar_usuario = $resultados->usuario;
-$alterar_senha = $resultados->senha;
-
-
+$dados = mysqli_query($conexao,$query)or die(mysqli_error($conexao));
+$resultados = mysqli_fetch_array($dados);
+$alterar_nome = $resultados['nome'];
+$alterar_serie = $resultados['serie'];
+$alterar_curso = $resultados['curso'];
+$alterar_telefone = $resultados['telefone'];
+$alterar_usuario = $resultados['usuario'];
+$alterar_senha = $resultados['senha'];
 
 ?>
 
 
-<style>
-	body {
-		height: auto !important;
-		font-size: 20px;
-		font-family: 'Bitter', serif;
-		color: #fff;
-	}
-
-</style>
-
-
-<?php include "header.php" ?>
+<?php include "../header.php" ?>
 <div class="back"><h5><a href="index.php">Voltar</a></h5></div>
 <div class="nossoo">
 
@@ -231,7 +212,5 @@ case "Hospedagem":
 </form>
 
 </div>
-
-<?php include "creditos.php" ?>
 </body>
 </html>

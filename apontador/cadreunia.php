@@ -1,5 +1,5 @@
 <?php
-include 'conexao.php';
+include '../conexao.php';
 $data = $_POST['data'];
 $hora = $_POST['hora'];
 $id = $_COOKIE['idAtraso'];
@@ -7,17 +7,14 @@ $id = $_COOKIE['idAtraso'];
 
 
 $query = "SELECT * FROM alunos WHERE id=".$id;
-$dados = mysql_query($query,$conexao); 
-$row=mysql_fetch_array($dados,MYSQL_ASSOC);
+$dados = mysqli_query($conexao,$query); 
+$row=mysqli_fetch_array($dados);
 
 $numSige = $row['numeroSige'];
 $curso = $row['curso'];
 $serie = $row['serie'];
 
 $query2 = "INSERT INTO reuniao (data,hora,numeroSige, curso, serie) VALUES ('$data','$hora','$numSige','$curso','$serie')";
-  $res   = mysql_query($query2, $conexao) or die(mysql_error());
+  $res   = mysqli_query($conexao,$query2) or die(mysqli_error($conexao));
    header('Location: verAtrasos.php?id='.$id);
-
-
-
 ?>

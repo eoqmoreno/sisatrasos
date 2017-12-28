@@ -51,7 +51,7 @@ echo '<td>SIM</td><td><a href="'.$url_apagar.'">Excluir Atraso</a></td></tr>';
 else
 echo '<td>NAO</td><td><a href="'.$url_apagar.'">Excluir Atraso</a></td></tr>';
 }
-    echo '</table><center><span><a href="marcarReu.php">Marcar Reunião</a></span></center>';
+    echo '</table><center><span><a href="cadReuniao.php">Marcar Reunião</a></span></center>';
 }
 else if($situacao==0) {
     echo "<h1><center>NENHUM ATRASO</center></h1>";

@@ -63,7 +63,7 @@ $dados = mysqli_query($conexao,$query);
 while($row=mysqli_fetch_array($dados)) 
 {
 
-$url_alterar = "addInfoAtraso.php?id=".$row["id"];
+$url_alterar = "cadAtraso.php?id=".$row["id"];
 $url_apagar = "apagarAluno.php?id=".$row["id"];
 $url_ver = "verAtrasos.php?id=".$row["id"];
 $url_editar = "editarAluno.php?id=".$row["id"];

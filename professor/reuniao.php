@@ -99,8 +99,8 @@ $url_apagar = "apagarAtraso.php?id=".$row["id"];
 
 $sige = $row['numeroSige'];
 $query1 = "SELECT * FROM alunos WHERE numeroSige=".$sige;
-$dados1 = mysql_query($query1,$conexao); 
-$row1=mysql_fetch_array($dados1,MYSQL_ASSOC);
+$dados1 = mysqli_query($conexao,$query1); 
+$row1=mysqli_fetch_array($dados1);
 
 
 echo '<tr><td>'.$row1["nome"] . '</td>';

@@ -48,7 +48,7 @@ $quantidadeAtrasos = $resultados->qtdAtraso;
 
 	<h1> ADICIONAR ATRASO </h1>
 
-<form method="post" action="addFinal.php?numeroSige=<?php echo $sige;?>">
+<form method="post" action="cadatras.php?numeroSige=<?php echo $sige;?>">
 	<label>Data:</label><input type="date" name="data" class="levar" required="">
 	<br><br>
 	<label>Horário:</label><input type="time" id="horario" name="hra" class="levar" required="">

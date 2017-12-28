@@ -32,7 +32,7 @@ $usuario = $_SESSION['usuario'];
         <div class="collapse" id="novoatraso">
                 <div class="container col-md-4 border-laranja border-radius text-center">
                 <label class="text-quarenta helveticalg">Novo Atraso</label>
-                <form method="get" action="procuraraluno.php" class="form-group">
+                <form method="get" action="procurarTurma.php" class="form-group">
                         <input type="radio" name="serio" required="" value="1" class="ml-1" id="1ano"> <label for="1ano">1°Ano</label>
                         <input type="radio" name="serio" required="" value="2" class="ml-1" id="2ano"> <label for="2ano">2°Ano</label>
                         <input type="radio" name="serio" required="" value="3" class="ml-1" id="3ano" checked=""> <label for="3ano">3°Ano</label>
@@ -135,7 +135,7 @@ $usuario = $_SESSION['usuario'];
                 while($row=mysqli_fetch_array($dados)) 
                 {                
                 $url_alterar = "editar.php?id=".$row["id"];
-                $url_apagar = "apagar.php?id=".$row["id"];
+                $url_apagar = "apagarProfessor.php?id=".$row["id"];
                 
                 echo '<tr><td>'.$row["nome"] . '</td>';
                 echo  '<td>'.'<img src="'.$row['imagem'].'" height="40" width="40"/>'. '</td>';
@@ -154,9 +154,9 @@ $usuario = $_SESSION['usuario'];
         <div class="collapse" id="cadprofessor">
                 <div class="container col-md-8 border-laranja border-radius text-justify">
                         <label class="text-quarenta helveticalg">Cadastro de Professores</label>     
-        <form method="post" action="adicionardt.php" class="form-group" enctype="multipart/form-data">
+        <form method="post" action="cadProfessor.php" class="form-group" enctype="multipart/form-data">
                 <input type="text" name="nome" placeholder="Nome" class="form-control mb-2" required>
-                <label class="form-control-label">Foto:</label><input type="file" name="foto" class="form-control-file mb-2">
+                <label class="form-control-label">Foto:</label><input type="file" name="foto" accept="image/*" class="form-control-file mb-2">
                 <label class="form-control-label">Série:</label>
                 <input type="radio" name="serie" required="" value="1" class="ml-1" id="1ano"> <label for="1ano">1°Ano</label>
                 <input type="radio" name="serie" required="" value="2" class="ml-1" id="2ano"> <label for="2ano">2°Ano</label>
@@ -189,7 +189,7 @@ $usuario = $_SESSION['usuario'];
         <form method="post" action="cadAluno.php" class="form-group" enctype="multipart/form-data">
                 <input type="text" name="nome" placeholder="Nome" class="form-control mb-2" required>
                 <input type="text" name="numeroSige" placeholder="Número do SIGE" class="form-control mb-2">
-                <label class="form-control-label">Foto:</label><input type="file" name="foto" class="form-control-file mb-2">
+                <label class="form-control-label">Foto:</label><input type="file" name="foto" accept="image/*" class="form-control-file mb-2">
                 <label class="form-control-label">Série:</label>
                 <input type="radio" name="serie" required value="1" class="ml-1" id="1ano"> <label for="1ano">1°Ano</label>
                 <input type="radio" name="serie" required value="2" class="ml-1" id="2ano"> <label for="2ano">2°Ano</label>

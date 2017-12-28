@@ -27,7 +27,7 @@ $query = "INSERT INTO atraso (data,horario,numeroSige,curso,serie,motivo) VALUES
 
  $query2 = "UPDATE alunos SET qtdAtraso='$opa' WHERE numeroSige=$sige";
  $res   = mysqli_query($conexao,$query2) or die(mysql_error());
- header('Location: procuraraluno.php?serio='.$serie.'&curso='.$curso.'');
+ header('Location: procurarTurma.php?serio='.$serie.'&curso='.$curso.'');
 
 
 ?>
