@@ -3533,3 +3533,6 @@ var Popover = function ($) {
 }(jQuery);
 
 }();
+function voltar(){
+  window.location = "../";
+}

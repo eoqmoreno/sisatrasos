@@ -90,5 +90,5 @@ echo '  <div class="collapse navbar-collapse text-center" id="navbarNav">
 ?>
   
 </nav>
-
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"></script>
 <div class="bg-laranja pb-1"></div>

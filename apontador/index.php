@@ -33,9 +33,9 @@ $usuario = $_SESSION['usuario'];
                 <div class="container col-md-4 border-laranja border-radius text-center">
                 <label class="text-quarenta helveticalg">Novo Atraso</label>
                 <form method="get" action="procurarTurma.php" class="form-group">
-                        <input type="radio" name="serio" required="" value="1" class="ml-1" id="1ano"> <label for="1ano">1°Ano</label>
-                        <input type="radio" name="serio" required="" value="2" class="ml-1" id="2ano"> <label for="2ano">2°Ano</label>
-                        <input type="radio" name="serio" required="" value="3" class="ml-1" id="3ano" checked=""> <label for="3ano">3°Ano</label>
+                        <input type="radio" name="serio" required="" value="1" class="ml-1" id="1anoo"> <label for="1anoo">1°Ano</label>
+                        <input type="radio" name="serio" required="" value="2" class="ml-1" id="2anoo"> <label for="2anoo">2°Ano</label>
+                        <input type="radio" name="serio" required="" value="3" class="ml-1" id="3anoo" checked=""> <label for="3anoo">3°Ano</label>
         	<br>
                         <select name="curso" class="form-control" required>
                                 <option>Selecione o curso</option>
@@ -62,7 +62,7 @@ $usuario = $_SESSION['usuario'];
         </div>
 
         <div class="collapse" id="maistres">
-                <div class="container col-md-12 border-laranja border-radius text-center">
+                <div class="container col-md-12 border-laranja border-radius text-center table-responsive">
                 <label class="text-quarenta helveticalg">Alunos com mais de 3 atrasos</label>
                 <table class="table">
                 <thead>
@@ -113,7 +113,7 @@ $usuario = $_SESSION['usuario'];
         </div>
 
         <div class="collapse" id="dts">  
-        <div class="container col-md-12 border-laranja border-radius text-center">  
+        <div class="container col-md-12 border-laranja border-radius text-center table-responsive">  
         <label class="text-quarenta helveticalg">Informações dos DTs</label>            
                 <table class="table">
                 <thead>
@@ -171,7 +171,7 @@ $usuario = $_SESSION['usuario'];
                         <option>Hospedagem</option>
                 </select>
                 </script>
-                <input type="text" name="telefone" placeholder="Telefone" id="telefone" class="form-control mb-2" required>
+                <input type="text" name="telefone" placeholder="Telefone" class="telefone" class="form-control mb-2" required>
                 <input type="text" name="usuario" placeholder="Usuário" class="form-control mb-2" required>
                         <div class="form-inline">
                                 <input type="password" name="senha" placeholder="Senha" class="form-control mb-2" required><input type="password" name="consenha" placeholder="Confirme Senha" class="form-control mb-2" required>
@@ -191,9 +191,9 @@ $usuario = $_SESSION['usuario'];
                 <input type="text" name="numeroSige" placeholder="Número do SIGE" class="form-control mb-2">
                 <label class="form-control-label">Foto:</label><input type="file" name="foto" accept="image/*" class="form-control-file mb-2">
                 <label class="form-control-label">Série:</label>
-                <input type="radio" name="serie" required value="1" class="ml-1" id="1ano"> <label for="1ano">1°Ano</label>
-                <input type="radio" name="serie" required value="2" class="ml-1" id="2ano"> <label for="2ano">2°Ano</label>
-                <input type="radio" name="serie" required value="3" class="ml-1 mb-2" id="3ano"><label for="3ano">3°Ano</label>
+                <input type="radio" name="serie" required value="1" class="ml-1" id="1a"> <label for="1a">1°Ano</label>
+                <input type="radio" name="serie" required value="2" class="ml-1" id="2a"> <label for="2a">2°Ano</label>
+                <input type="radio" name="serie" required value="3" class="ml-1 mb-2" id="3a"><label for="3a">3°Ano</label>
                 
                 <select name="curso" class="form-control p-0 mb-2" required="">
                         <option>Selecione o curso</option>
@@ -207,8 +207,8 @@ $usuario = $_SESSION['usuario'];
                 <input type="text" name="rg" placeholder="RG" id="rg" class="form-control mb-2" required>
                 <input type="text" name="cpf" placeholder="CPF" id="cpf" class="form-control mb-2" required>
                 </div><div class="form-inline">
-                <input type="text" name="telAluno" placeholder="Telefone do Aluno" id="telefone" class="form-control mb-2" required>
-                <input type="text" name="telResponsavel" placeholder="Telefone do Responsavel" id="telefone" class="form-control mb-2" required>
+                <input type="text" name="telAluno" placeholder="Telefone do Aluno" class="telefone" class="form-control mb-2" required>
+                <input type="text" name="telResponsavel" placeholder="Telefone do Responsavel" class="telefone" class="form-control mb-2" required>
                 </div>
                 <input type="mail" name="email" placeholder="Email" class="form-control mb-2" required>
                 <input type="submit" class="btn float-right text-bold laranja border-laranja bg-branco procurar pointer">
@@ -223,9 +223,9 @@ $usuario = $_SESSION['usuario'];
                 <div class="container col-md-4 border-laranja border-radius text-center">
                 <label class="text-quarenta helveticalg">Gerar Relatório</label> 
                 <form method="get" action="gerar_relatorio.php">
-                <input type="radio" name="serie" required value="1" class="ml-1" id="1ano"> <label for="1ano">1°Ano</label>
-                <input type="radio" name="serie" required value="2" class="ml-1" id="2ano"> <label for="2ano">2°Ano</label>
-                <input type="radio" name="serie" required value="3" class="ml-1 mb-2" id="3ano"><label for="3ano">3°Ano</label>
+                <input type="radio" name="serie" required value="1" class="ml-1" id="1an"> <label for="1an">1°Ano</label>
+                <input type="radio" name="serie" required value="2" class="ml-1" id="2an"> <label for="2an">2°Ano</label>
+                <input type="radio" name="serie" required value="3" class="ml-1 mb-2" id="3an"><label for="3an">3°Ano</label>
                 
                 <select name="curso" class="form-control p-0 mb-2" required="">
                         <option>Selecione o curso</option>

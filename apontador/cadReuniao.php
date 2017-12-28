@@ -16,7 +16,7 @@ $id = $_COOKIE['idAtraso'];
 
 <h1> MARCAR REUNIÃO </h1>
 
-    <form method="post" action="infoReu.php" class="add" enctype="multipart/form-data">
+    <form method="post" action="cadreunia.php" class="add" enctype="multipart/form-data">
 	<label>Data:</label> <input type="date" name="data" class="levar">
 	<br><BR>
 	<label>Horário:</label> <input type="time" name="hora" id="hora" class="levar">
