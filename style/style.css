@@ -130,6 +130,9 @@ font-family: helveticalg !important;
 .vermelho{
         color: var(--vermelho) !important;
 }
+.preto{
+	color: black !important;
+}
 
 /* Image */
 .img-vinte{

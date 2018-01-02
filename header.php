@@ -84,6 +84,7 @@ echo '  <div class="collapse navbar-collapse text-center" id="navbarNav">
             <a class="dropdown-item verde w-content ml-3 p-0" href="../"><span class="fa fa-home text-vinte d-inline" aria-hidden="true"></span> Página Inicial</a>
             <a class="dropdown-item verde w-content ml-3 p-0" href="../aluno"><span class="fa fa-user-circle" aria-hidden="true"></span> Aluno</a>
             <a class="dropdown-item verde w-content ml-3 p-0" href="../professor"><span class="fa fa-graduation-cap" aria-hidden="true"></span> Professor Diretor de Turma</a>
+            <a class="dropdown-item verde w-content ml-3 p-0" href="../admin"><span class="fa fa-user-circle-o" aria-hidden="true"></span> Administrador</a>
             <a class="dropdown-item verde w-content ml-3 p-0" href="../apontador"><span class="fa fa-address-card" aria-hidden="true"></span> Apontador de Atraso</a>
         </div>';
 }

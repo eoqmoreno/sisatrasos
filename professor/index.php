@@ -40,7 +40,6 @@ include '../header.php';
 <div class="collapse" id="paraHoje">
             <div class="container col-md-6 border-laranja border-radius text-center table-responsive">
             <label class="text-quarenta helveticalg">Reuniões Para Hoje</label>
-				<h5><?php echo $curso. " ";?><?php echo $serie. " ";?></h5>
 				<table class="table">
 
 				<thead>
@@ -83,10 +82,6 @@ include '../header.php';
             <div class="container col-md-6 border-laranja border-radius text-center table-responsive">
 			<label class="text-quarenta helveticalg">Reuniões Marcadas</label>
 			
-
-<h5><?php echo $curso. " ";?><?php echo $serie. " ";?></h5>
-    <link rel="stylesheet" type="text/css" href="css/estilo.css">
-    <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
 <table class="table">
 
 <thead>
@@ -189,16 +184,6 @@ echo '<td class="text-center">'.$row1["telresponsavel"]. '</td><td class="text-c
 				</thead>
 				<tbody>
 				<tr>
-
-				<?php 
-
-				include '../conexao.php';
-				$serie = $_COOKIE['serieDT'];
-				$curso = $_COOKIE['cursoDT'];
-				?>
-
-				<h5><?php echo $curso. " ";?><?php echo $serie. " ";?></h5>
-
 				<?php
 				$query = "SELECT * FROM atraso WHERE curso='$curso' AND serie='$serie' AND motivo<>'Falta nao justificada'";
 				$dados = mysqli_query($conexao,$query); 
