@@ -4,55 +4,49 @@ include '../header.php';
 
 $id = $_REQUEST["id"];
 
-$query = "SELECT * FROM alunos WHERE id=$id";
+$query = "SELECT * FROM professor WHERE id=$id";
 
 $dados = mysqli_query($conexao,$query);
 $resultados = mysqli_fetch_object($dados);
 $alterar_nome = $resultados->nome;
 $alterar_serie = $resultados->serie;
 $alterar_curso = $resultados->curso;
-$alterar_rg = $resultados->rg;
-$alterar_cpf = $resultados->cpf;
-$alterar_telaluno = $resultados->telaluno;
-$alterar_telResp = $resultados->telresponsavel;
-$alterar_email = $resultados->email;
-$alterar_numeroSige = $resultados->numeroSige;
+$alterar_telefone = $resultados->telefone;
 ?>
 
 <a title="voltar" class="bg-laranja preto pointer text-bold m-0 p-2 pt-2 voltar" onclick="voltar()"><span class="fa fa-arrow-circle-o-left" aria-hidden="true"></span> Voltar</a> 
 
 <div class="container col-md-4 border-laranja border-radius text-center">
-<form method="post" action="editAluno.php" class="form" enctype="multipart/form-data">
+<form method="post" action="editProfessor.php" class="form" enctype="multipart/form-data">
 <label class="text-quarenta helveticalg">Editar Aluno</label>
 <input type="hidden" name="id" value="<?php echo $id;?>">
-<div class="form-inline"><label>Nome:</label><input type="text" name="nome" class="form-control" value="<?php echo $alterar_nome; ?>"></div>
-<div class="form-inline"><label>Numero SIGE:</label> <input type="text" name="numeroSige" class="form-control" value="<?php echo $alterar_numeroSige; ?>"></div>
-<div class="form-inline"><label>Foto:</label> <input type="file" name="image" class="form-control-file" ></div>
+<div class="form-inline"><label>Nome:</label><input type="text" name="nome" class="form-control" required value="<?php echo $alterar_nome; ?>"></div>
+<div class="form-inline"><label>Foto:</label> <input type="file" name="image" required class="form-control-file" ></div>
 <div class="form-inline">
 <?php 
 switch ($alterar_serie) {
 case 1:
 	echo "
 		<label>Série:</label>   
-		<input type='radio' name='serie' value='1' checked>1° Ano
-		<input type='radio' name='serie' value='2'>2° Ano
+		<input required type='radio' name='serie' value='1' checked>1° Ano
+		<input required type='radio' name='serie' value='2'>2° Ano
 		<input type='radio' name='serie' value='3'>3° Ano
 	";
 break;
 case 2:
 	echo "
 		<label>Série:</label>   
-		<input type='radio' name='serie' value='1'>1° Ano
-		<input type='radio' name='serie' value='2' checked>2° Ano
-		<input type='radio' name='serie' value='3'>3° Ano
+		<input required type='radio' name='serie' value='1'>1° Ano
+		<input required type='radio' name='serie' value='2' checked>2° Ano
+		<input required type='radio' name='serie' value='3'>3° Ano
 	";
 break;
 case 3:
 	echo "
 		<label>Série:</label>   
-		<input type='radio' name='serie' value='1'>1° Ano
-		<input type='radio' name='serie' value='2'>2° Ano
-		<input type='radio' name='serie' value='3' checked>3° Ano
+		<input required type='radio' name='serie' value='1'>1° Ano
+		<input required type='radio' name='serie' value='2'>2° Ano
+		<input required type='radio' name='serie' value='3' checked>3° Ano
 	";
 break;
 default:
@@ -65,9 +59,9 @@ break;
 	<label>Curso:</label> 
 <?php 
 switch ($alterar_curso) {
-case "Informatica":
+case "Informática":
 	echo "
-		<select class='form-control' name='curso' required=''>
+		<select class='form-control' name='curso' required>
 		<option selected>Informatica</option>
 		<option>Enfermagem</option>
 		<option>Segurança do Trabalho</option>
@@ -78,7 +72,7 @@ case "Informatica":
 break;
 case "Enfermagem":
 	echo "
-		<select class='form-control' name='curso' required=''>
+		<select class='form-control' name='curso' required>
 		<option>Informatica</option>
 		<option selected>Enfermagem</option>
 		<option>Segurança do Trabalho</option>
@@ -89,7 +83,7 @@ case "Enfermagem":
 break;
 case "Segurança do Trabalho":
 	echo "
-		<select class='form-control' name='curso' required''>
+		<select class='form-control' name='curso' required>
 		<option>Informatica</option>
 		<option>Enfermagem</option>
 		<option selected>Segurança do Trabalho</option>
@@ -100,7 +94,7 @@ case "Segurança do Trabalho":
 break;
 case "Libras":
 	echo "
-		<select class='form-control' name='curso' required=''>
+		<select class='form-control' name='curso' required>
 		<option>Informatica</option>
 		<option>Enfermagem</option>
 		<option>Segurança do Trabalho</option>
@@ -111,7 +105,7 @@ case "Libras":
 break;
 case "Hospedagem":
 	echo "
-		<select class='form-control' name='curso' required=''>
+		<select class='form-control' name='curso' required>
 		<option>Informatica</option>
 		<option>Enfermagem</option>
 		<option>Segurança do Trabalho</option>
@@ -126,11 +120,7 @@ break;
 }
 ?>
 </div>
-<div class="form-inline"><label>RG:</label> <input type="text" name="rg" class="form-control" id="rg" value="<?php echo $alterar_rg; ?>"></div>
-<div class="form-inline"><label>CPF:</label> <input type="text" maxlength="14" name="cpf" class="form-control cpf" value="<?php echo $alterar_cpf; ?>"></div>
-<div class="form-inline"><label>Tel. Aluno:</label> <input type="text" maxlength="20" name="telAluno" class="form-control telefone" value="<?php echo $alterar_telaluno; ?>"></div>
-<div class="form-inline"><label>Tel. Resp:</label> <input type="text" name="telResponsavel" class="form-control telefone" value="<?php echo $alterar_telResp; ?>"></div>
-<div class="form-inline"><label>Email:</label> <input type="email" name="email" class="form-control mb-2" value="<?php echo $alterar_email; ?>"></div>
+<div class="form-inline"><label>Telefone:</label> <input type="text" required name="telAluno" class="form-control telefone" id="telefone" value="<?php echo $alterar_telefone; ?>"></div>
 <input type="submit" name="" class="btn mt-1 text-bold laranja border-laranja bg-branco procurar pointer">
 <input type="reset" name="" class="btn mt-1 text-bold laranja border-laranja bg-branco procurar pointer">
 </form>

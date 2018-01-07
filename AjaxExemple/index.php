@@ -11,19 +11,22 @@
 	<b>Digite o que procura</b>
 	<!--Aqui o formulário para a busca-->
 	<form name='busca'>
-        <select name="curso">
-            <option>Informática</option>
-        </select>
-		<input type="button" value="buscar" onclick="mostraConteudo('buscar.php?curso='+document.busca.curso.value,'resultado_busca')">
+			<input type="radio" name="serie" value="3">
+			<select name="curso" class="form-control" onchange="mostraConteudo('buscar.php?curso='+document.busca.curso.value+'serie'+document.busca.serie.value,'resultado_busca')">
+					<option>Selecione o curso</option>
+					<option>Informática</option>
+					<option>Enfermagem</option>
+					<option>Segurança do Trabalho</option>
+					<option>Libras</option>
+					<option>Hospedagem</option>
+			</select>
 	</form>
-	<!--Fim do formulário busca-->
 	<br />
 
-	<b>Resultado da busca</b><br />
-
 	<!--Aqui é onde vai aparecer o resultado da busca-->
-	<table id="resultado_busca"></table>
-
+	<select id="resultado_busca">
+		<option></option>
+	</select>
     
 </body>
 </html>

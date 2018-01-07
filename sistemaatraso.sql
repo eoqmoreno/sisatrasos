@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: fdb7.freehostingeu.com
--- Generation Time: 27-Dez-2017 às 17:46
--- Versão do servidor: 5.7.20-log
--- PHP Version: 5.5.38
+-- Host: localhost
+-- Tempo de geração: 07/01/2018 às 15:48
+-- Versão do servidor: 10.1.28-MariaDB
+-- Versão do PHP: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `1942710_imp`
+-- Banco de dados: `sistemaatraso`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `administrador`
+-- Estrutura para tabela `administrador`
 --
 
 CREATE TABLE `administrador` (
@@ -38,16 +40,16 @@ CREATE TABLE `administrador` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `administrador`
+-- Fazendo dump de dados para tabela `administrador`
 --
 
 INSERT INTO `administrador` (`id`, `nome`, `endereco`, `telefone`, `cpf`, `rg`, `usuario`, `senha`) VALUES
-(22, '', '', '', '', '', '', '');
+(22, '', '', '', '', '', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `alunos`
+-- Estrutura para tabela `alunos`
 --
 
 CREATE TABLE `alunos` (
@@ -58,6 +60,7 @@ CREATE TABLE `alunos` (
   `rg` varchar(30) NOT NULL,
   `cpf` varchar(30) NOT NULL,
   `telaluno` varchar(15) DEFAULT NULL,
+  `nomeResponsavel` varchar(255) NOT NULL,
   `telresponsavel` varchar(50) NOT NULL,
   `email` varchar(200) NOT NULL,
   `numeroSige` varchar(60) NOT NULL,
@@ -66,18 +69,17 @@ CREATE TABLE `alunos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `alunos`
+-- Fazendo dump de dados para tabela `alunos`
 --
 
-INSERT INTO `alunos` (`nome`, `foto`, `serie`, `curso`, `rg`, `cpf`, `telaluno`, `telresponsavel`, `email`, `numeroSige`, `qtdAtraso`, `id`) VALUES
-('Xelinha Ateu', '../fotos/aluno/00.png', '3', 'Informática', '', '', NULL, '', '', '00', 0, 26),
-('George Moreno', '../fotos/aluno/3450030.png', '3', 'Informatica', '1111111111111111', '11111111111111', '111111111111', '111111111111', '11@gmail.com', '3450030', 0, 27),
-('Mateus Esmeraldo', '../fotos/aluno/3466553.png', '3', 'Informatica', '11111111111111111', '11111111111111', '111111111111111', '1111111111', 'mateus@mateus.com', '3466553', 1, 28);
+INSERT INTO `alunos` (`nome`, `foto`, `serie`, `curso`, `rg`, `cpf`, `telaluno`, `nomeResponsavel`, `telresponsavel`, `email`, `numeroSige`, `qtdAtraso`, `id`) VALUES
+('Xelinha Ateu', '../fotos/aluno/00.png', '3', 'Informática', '0000000000', '000000000', '000000000', 'oia', '000000000', '0000000000@gmail.com', '00', 3, 26),
+('George Moreno', '../fotos/aluno/3450030.png', '2', 'Informática', '00000000', '000.000.000-00', '(00) 00000-0000', 'Minha Mãe', '(00) 00000-0000', 'gmodeveloper@gmail.com', '3450030', 0, 27);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `apontador`
+-- Estrutura para tabela `apontador`
 --
 
 CREATE TABLE `apontador` (
@@ -92,16 +94,16 @@ CREATE TABLE `apontador` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `apontador`
+-- Fazendo dump de dados para tabela `apontador`
 --
 
 INSERT INTO `apontador` (`id`, `nome`, `endereco`, `telefone`, `cpf`, `rg`, `usuario`, `senha`) VALUES
-(14, 'Isabel Cristina', '', '', '', '', 'isa', '0');
+(14, 'Isabel Cristina', '', '', '', '', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `atraso`
+-- Estrutura para tabela `atraso`
 --
 
 CREATE TABLE `atraso` (
@@ -115,17 +117,10 @@ CREATE TABLE `atraso` (
   `motivo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `atraso`
---
-
-INSERT INTO `atraso` (`id`, `data`, `horario`, `numeroSige`, `antigo`, `curso`, `serie`, `motivo`) VALUES
-(79, '2017-12-22', '07:30', '3466553', 0, 'Informatica', '3', 'Falta nao justificada');
-
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `professor`
+-- Estrutura para tabela `professor`
 --
 
 CREATE TABLE `professor` (
@@ -140,7 +135,7 @@ CREATE TABLE `professor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `professor`
+-- Fazendo dump de dados para tabela `professor`
 --
 
 INSERT INTO `professor` (`id`, `nome`, `imagem`, `serie`, `curso`, `telefone`, `usuario`, `senha`) VALUES
@@ -149,7 +144,7 @@ INSERT INTO `professor` (`id`, `nome`, `imagem`, `serie`, `curso`, `telefone`, `
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `reuniao`
+-- Estrutura para tabela `reuniao`
 --
 
 CREATE TABLE `reuniao` (
@@ -162,79 +157,86 @@ CREATE TABLE `reuniao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Índices de tabelas apagadas
 --
 
 --
--- Indexes for table `administrador`
+-- Índices de tabela `administrador`
 --
 ALTER TABLE `administrador`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `alunos`
+-- Índices de tabela `alunos`
 --
 ALTER TABLE `alunos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `apontador`
+-- Índices de tabela `apontador`
 --
 ALTER TABLE `apontador`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `atraso`
+-- Índices de tabela `atraso`
 --
 ALTER TABLE `atraso`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `professor`
+-- Índices de tabela `professor`
 --
 ALTER TABLE `professor`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `reuniao`
+-- Índices de tabela `reuniao`
 --
 ALTER TABLE `reuniao`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas apagadas
 --
 
 --
--- AUTO_INCREMENT for table `administrador`
+-- AUTO_INCREMENT de tabela `administrador`
 --
 ALTER TABLE `administrador`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
 --
--- AUTO_INCREMENT for table `alunos`
+-- AUTO_INCREMENT de tabela `alunos`
 --
 ALTER TABLE `alunos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
 --
--- AUTO_INCREMENT for table `apontador`
+-- AUTO_INCREMENT de tabela `apontador`
 --
 ALTER TABLE `apontador`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
--- AUTO_INCREMENT for table `atraso`
+-- AUTO_INCREMENT de tabela `atraso`
 --
 ALTER TABLE `atraso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `professor`
+-- AUTO_INCREMENT de tabela `professor`
 --
 ALTER TABLE `professor`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
 --
--- AUTO_INCREMENT for table `reuniao`
+-- AUTO_INCREMENT de tabela `reuniao`
 --
 ALTER TABLE `reuniao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

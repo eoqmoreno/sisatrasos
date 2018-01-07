@@ -1,15 +1,9 @@
 <?php 
-include 'conexao.php';
-
-?>
-
-
-<?php 
-
+include '../conexao.php';
 
 $id = $_REQUEST["id"];
 
-$query = "DELETE FROM atraso WHERE id=".$id;
-mysql_query($query, $conexao);
-header("Location: atrasosJustificados.php");
+$query = "DELETE FROM atraso WHERE id=$id";
+mysqli_query($conexao,$query);
+header("Location: index.php");
 ?>

@@ -16,8 +16,13 @@
 <script src="../js/jquery-3.2.1.slim.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/bootstrap.js"></script>
-
-<title>Adicionar Aluno</title>
+<script src="../js/jquery.maskedinput.min.js"></script>
+<script>
+		jQuery(function($){
+               $(".telefone").mask("(99) 99999-9999");
+               $(".cpf").mask("999.999.999-99");
+		});
+</script>
 
 <nav class="navbar navbar-toggleable-md bg-cinza border-bottom-branco">
 
@@ -40,8 +45,8 @@ echo '<div class="collapse navbar-collapse text-center border-radius border-bran
                  </script>
              <img id="img" class="img-foto border-laranja">
              <div class="d-inline-block align-middle m-1 text-left">
-             <label id="nome" class="text-dez helvetica laranja m-0 d-block"></label>
-             <label id="info" class="text-dez helvetica branco m-0"></label>
+             <label id="nome" class="text-dez laranja m-0 d-block"></label>
+             <label id="info" class="text-dez branco m-0"></label>
              </div>
         </div>';
 }elseif($tipo=="apt"){
@@ -56,8 +61,8 @@ echo '<div class="collapse navbar-collapse text-center border-radius border-bran
                  </script>
              <img id="img" class="img-foto border-laranja">
              <div class="d-inline-block m-1 text-left align-middle">
-             <label id="nome" class="text-dez helvetica laranja m-0 d-block"></label>
-             <label id="info" class="text-dez helvetica branco m-0"></label>
+             <label id="nome" class="text-dez laranja m-0 d-block"></label>
+             <label id="info" class="text-dez branco m-0"></label>
              </div>
         </div>';
 }else{
@@ -72,8 +77,8 @@ echo '<div class="collapse navbar-collapse text-center border-radius border-bran
                  </script>
              <img id="img" class="img-foto border-laranja">
              <div class="d-inline-block m-1 text-left align-middle">
-             <label id="nome" class="text-dez helvetica laranja m-0 d-block"></label>
-             <label id="info" class="text-dez helvetica branco m-0"></label>
+             <label id="nome" class="text-dez laranja m-0 d-block"></label>
+             <label id="info" class="text-dez branco m-0"></label>
              </div>
         </div>';
 }

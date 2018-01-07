@@ -60,9 +60,7 @@ include '../header.php';
 
 				while($row=mysqli_fetch_array($dados)) 
 				{
-
-				$url_apagar = "apagarAtraso.php?id=".$row["id"];
-
+				$url_apagar = "apagarReuniao.php?id=".$row["id"];
 				$sige = $row['numeroSige'];
 				$query1 = "SELECT * FROM alunos WHERE numeroSige=$sige";
 				$sql = mysqli_query($conexao,$query1)or die(mysqli_error($conexao));
@@ -90,6 +88,7 @@ include '../header.php';
 	<th class="text-center">DATA</th>
 	<th class="text-center">HORARIO</th> 
 	<th class="text-center">TELEFONE RES.</th>
+	<th class="text-center">#</th>
 </tr>
 </thead>
 <tbody>
@@ -102,7 +101,7 @@ $dados = mysqli_query($conexao,$query);
 while($row=mysqli_fetch_array($dados)) 
 {
 
-$url_apagar = "apagarAtraso.php?id=".$row["id"];
+$url_apagar = "apagarReuniao.php?id=".$row["id"];
 
 $sige = $row['numeroSige'];
 $query1 = "SELECT * FROM alunos WHERE numeroSige=".$sige;
@@ -127,18 +126,18 @@ echo '<td class="text-center">'.$row1["telresponsavel"]. '</td><td class="text-c
             <label class="text-quarenta helveticalg">Minha Turma</label>
 				
 				<div id="alunos">
-
-				<h5><?php echo $serie ."º ". $curso;?></h5>
 				<table class="table">
 				<thead>
-				<tr>
+				<tr>	 
 					<th class="text-center" scope="col">NOME</th>
 					<th class="text-center" scope="col">FOTO</th> 
 					<th class="text-center" scope="col">TEL. ALUNO</th>
+					<th class="text-center" scope="col">NOME RESPONSAVEL</th>
 					<th class="text-center" scope="col">TEL. RESPONSAVEL</th>
-					<th class="text-center" scope="col">EMAIL</th>
-					<th class="text-center" scope="col">QTD Atrasos</th>
-					<th class="text-center" scope="col">NUMERO SIGE</th>
+					<th class="text-center" scope="col">ATRASOS</th>
+					<th class="text-center" scope="col">SIGE</th>
+					<th class="text-center">#</th>
+					<th class="text-center">#</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -150,13 +149,15 @@ echo '<td class="text-center">'.$row1["telresponsavel"]. '</td><td class="text-c
 				while($row=mysqli_fetch_array($dados)) 
 				{
 				$url_editar = "editarAluno.php?id=".$row["id"];
+				$url_apagar = "apagarAluno.php?id=".$row["id"];
 				echo '<tr scope="row"><td>'.$row["nome"] . '</td>';
 				echo  '<td>'.'<img src="'.$row['foto'].'" height="40" width="40"/>'. '</td>';
 				echo '<td>'.$row["telaluno"] . '</td>';
+				echo '<td>'.$row["nomeResponsavel"] . '</td>';
 				echo '<td>'.$row["telresponsavel"] . '</td>';
-				echo '<td>'.$row["email"] . '</td>';
 				echo '<td>'.$row["qtdAtraso"] . '</td>';
-				echo '<td>'.$row["numeroSige"].'</td><td><a href="'.$url_editar.'">EDITAR</a></td></tr>';
+				echo '<td>'.$row["numeroSige"].'</td><td><a href="'.$url_editar.'">EDITAR</a></td>';
+				echo '<td><a href="'.$url_apagar.'">EXCLUIR</a></td></tr>';
 				}
 				?>
 				</tr>
@@ -178,6 +179,7 @@ echo '<td class="text-center">'.$row1["telresponsavel"]. '</td><td class="text-c
 					<th class="text-center">HORA</th> 
 					<th class="text-center">DATA</th>
 					<th class="text-center">JUSTIFICATIVA</th>
+					<th class="text-center">#</th>
 				</tr>
 
 				</tr>
@@ -185,15 +187,13 @@ echo '<td class="text-center">'.$row1["telresponsavel"]. '</td><td class="text-c
 				<tbody>
 				<tr>
 				<?php
-				$query = "SELECT * FROM atraso WHERE curso='$curso' AND serie='$serie' AND motivo<>'Falta nao justificada'";
+				$query = "SELECT * FROM atraso WHERE curso='$curso' AND serie='$serie' AND motivo = 'sim'";
 				$dados = mysqli_query($conexao,$query); 
 				while($row=mysqli_fetch_array($dados)) 
 				{
-
 				$url_apagar = "apagarAtrasoJustificado.php?id=".$row["id"];
-
 				$sige = $row['numeroSige'];
-				$query1 = "SELECT * FROM alunos WHERE numeroSige=".$sige;
+				$query1 = "SELECT * FROM alunos WHERE numeroSige=$sige";
 				$sql = mysqli_query($conexao,$query1)or die(mysqli_error($conexao));
 				$row1 = mysqli_fetch_array($sql);
 
@@ -202,7 +202,12 @@ echo '<td class="text-center">'.$row1["telresponsavel"]. '</td><td class="text-c
 				echo '<td class="text-center">'.$row["numeroSige"] . '</td>';
 				echo '<td class="text-center">'.$row["horario"] . '</td>';
 				echo '<td class="text-center">'.$row["data"] . '</td>';
-				echo '<td class="text-center">'.$row["motivo"]. '</td><td class="text-center"><a href="'.$url_apagar.'">EXCLUIR</a></td></tr>';
+				if($row['motivo'] != "nao") {
+					echo '<td class="text-center">SIM</td>';
+				}else{
+					echo '<td class="text-center">NÃO</td>';
+				}
+				echo '<td class="text-center"><a href="'.$url_apagar.'">EXCLUIR</a></td></tr>';
 				}
 				?>
 				</table></center>

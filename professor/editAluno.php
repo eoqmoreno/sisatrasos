@@ -23,22 +23,21 @@ $cpf = $_REQUEST["cpf"];
 $telAluno = $_REQUEST['telAluno']; 
 $telResp = $_REQUEST['telResponsavel'];
 $email =  $_REQUEST['email'];
+$nomeResponsavel = $_REQUEST['nomeResponsavel'];
 
-$imagem = $_FILES["image"];
+$imagem = $_FILES['image']['tmp_name'];
 
 if($imagem != NULL) {
-	$nomeFinal = time().'.jpg';
 	$local = '../fotos/aluno/'.$numeroSige.'.png';
-	copy($imagem,$local);
+	copy('$imagem','$local');
 }
 
-if(isset($mysqlImg)) {
-$query = "UPDATE alunos SET nome='".$nome."',foto='".$mysqlImg."',curso='".$curso."',serie='".$serie."' ,rg='".$rg."',cpf='".$cpf."',telaluno='".$telAluno."' ,telresponsavel='".$telResponsavel."',email='".$email."',numeroSige='".$numeroSige."' WHERE id=".$id;
+if(isset($local)) {
+$query = "UPDATE alunos SET nome='".$nome."',foto='".$local."',curso='".$curso."',serie='".$serie."' ,rg='".$rg."',cpf='".$cpf."',telaluno='".$telAluno."',nomeResponsavel='".$nomeResponsavel."' ,telresponsavel='".$telResp."',email='".$email."',numeroSige='".$numeroSige."' WHERE id=".$id;
 }
 else {
-$query = "UPDATE alunos SET nome='".$nome."',curso='".$curso."',serie='".$serie."' ,rg='".$rg."',cpf='".$cpf."',telaluno='".$telAluno."' ,telresponsavel='".$telResp."' ,email='".$email."',numeroSige='".$numeroSige."' WHERE id=".$id;
+$query = "UPDATE alunos SET nome='".$nome."',curso='".$curso."',serie='".$serie."' ,rg='".$rg."',cpf='".$cpf."',telaluno='".$telAluno."',nomeResponsavel='".$nomeResponsavel."' ,telresponsavel='".$telResp."' ,email='".$email."',numeroSige='".$numeroSige."' WHERE id=".$id;
 }
-}
+
 mysqli_query($conexao,$query) or die(mysqli_error($conexao));
- header('Location: minhaTurma.php');
 ?>

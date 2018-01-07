@@ -29,7 +29,7 @@
         include '../header.php'
     ?>
     <body class="bg-branco">
-        <a title="voltar" class="bg-laranja helveticalg preto pointer text-bold m-0 p-2 pt-2 voltar" onclick="voltar()"><span class="fa fa-arrow-circle-o-left" aria-hidden="true"></span> Voltar</a> 
+        <a title="voltar" class="bg-laranja preto pointer text-bold m-0 p-2 pt-2 voltar" onclick="voltar()"><span class="fa fa-arrow-circle-o-left" aria-hidden="true"></span> Voltar</a> 
          
         <div class="container mb-6">
         <div class="row justify-content-around">
@@ -56,7 +56,7 @@
                                 echo '<tr>';
                                 echo '<td class="text-center">'.$row["horario"].'</td>';
                                 echo '<td class="text-center">'.$row["data"].'</td>';
-                                if($row['motivo'] != "Falta nao justificada") {
+                                if($row['motivo'] != "nao") {
                                     echo '<td class="text-center">SIM</td></tr>';
                                 }else{
                                     echo '<td class="text-center">NÃO</td></tr>';
