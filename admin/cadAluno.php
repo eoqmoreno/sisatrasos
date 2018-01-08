@@ -1,7 +1,5 @@
 <?php 
 include '../conexao.php';
-if(count($_POST) > 0){
-
 $nome = $_POST['nome'];
 $imagem = $_FILES['foto']['tmp_name'];
 $serie = $_POST['serie'];

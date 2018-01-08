@@ -1,24 +1,30 @@
 <?php 
 include '../conexao.php';
 
-if(count($_POST) > 0){
 $nome = $_POST["nome"];
-$imagem = $_FILES["foto"];
+$imagem = $_FILES["foto"]['tmp_name'];
 $serie = $_POST['serie'];
 $curso = $_POST["curso"];
 $telefone = $_POST["telefone"];
 $usuario = $_POST["usuario"];
 $senha = $_POST["senha"];
-echo $serie;
+$confsenha = $_POST["consenha"];
 
-	$local = '../fotos/professor/'.$numeroSige.'.png';
+$nomeRandom =md5(sha1($senha.md5($senha).md5($senha).md5($nome),
+            md5($nome).md5($senha).md5($senha).$senha));
+
+
+	$local = '../fotos/professor/'.$nomeRandom.'.png';
 	copy($imagem,$local);
 
- $query = "INSERT INTO detes (nome, imagem, serie, curso, telefone, usuario, senha) VALUES ('$nome','$local','$serie','$curso','$telefone','$usuario','$senha')";
+if($confsenha == $senha){
+ $query = "INSERT INTO professor (nome, imagem, serie, curso, telefone, usuario, senha) VALUES ('$nome','$local','$serie','$curso','$telefone','$usuario','$senha')";
  $res   = mysqli_query($conexao,$query);
-  if($res){
-    echo "Dados inseridos com sucesso";
-  }else{
-    echo "Falha ao tentar inserir dados";
-  }
+    header("location:index.php");
+}else{
+  echo "<script>
+  alert('As senhas não são iguais');
+  window.location = 'index.php';
+  </script>";
+}
 ?>

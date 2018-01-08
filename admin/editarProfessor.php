@@ -12,18 +12,20 @@ $alterar_nome = $resultados->nome;
 $alterar_serie = $resultados->serie;
 $alterar_curso = $resultados->curso;
 $alterar_telefone = $resultados->telefone;
+$alterar_imagem = $resultados->imagem;
 ?>
 
 <a title="voltar" class="bg-laranja preto pointer text-bold m-0 p-2 pt-2 voltar" onclick="voltar()"><span class="fa fa-arrow-circle-o-left" aria-hidden="true"></span> Voltar</a> 
 
 <div class="container col-md-4 border-laranja border-radius text-center">
 <form method="post" action="editProfessor.php" class="form" enctype="multipart/form-data">
-<label class="text-quarenta helveticalg">Editar Aluno</label>
+<label class="text-quarenta helveticalg">Editar Professor</label>
 <input type="hidden" name="id" value="<?php echo $id;?>">
+<input type="hidden" name="img_name" value="<?php echo $alterar_imagem; ?>">
 <div class="form-inline"><label>Nome:</label><input type="text" name="nome" class="form-control" required value="<?php echo $alterar_nome; ?>"></div>
 <div class="form-inline"><label>Foto:</label> <input type="file" name="image" required class="form-control-file" ></div>
 <div class="form-inline">
-<?php 
+<?php
 switch ($alterar_serie) {
 case 1:
 	echo "
@@ -62,7 +64,7 @@ switch ($alterar_curso) {
 case "Informática":
 	echo "
 		<select class='form-control' name='curso' required>
-		<option selected>Informatica</option>
+		<option selected>Informática</option>
 		<option>Enfermagem</option>
 		<option>Segurança do Trabalho</option>
 		<option>Libras</option>
@@ -73,7 +75,7 @@ break;
 case "Enfermagem":
 	echo "
 		<select class='form-control' name='curso' required>
-		<option>Informatica</option>
+		<option>Informática</option>
 		<option selected>Enfermagem</option>
 		<option>Segurança do Trabalho</option>
 		<option>Libras</option>
@@ -84,7 +86,7 @@ break;
 case "Segurança do Trabalho":
 	echo "
 		<select class='form-control' name='curso' required>
-		<option>Informatica</option>
+		<option>Informática</option>
 		<option>Enfermagem</option>
 		<option selected>Segurança do Trabalho</option>
 		<option>Libras</option>
@@ -95,7 +97,7 @@ break;
 case "Libras":
 	echo "
 		<select class='form-control' name='curso' required>
-		<option>Informatica</option>
+		<option>Informática</option>
 		<option>Enfermagem</option>
 		<option>Segurança do Trabalho</option>
 		<option selected>Libras</option>
@@ -106,7 +108,7 @@ break;
 case "Hospedagem":
 	echo "
 		<select class='form-control' name='curso' required>
-		<option>Informatica</option>
+		<option>Informática</option>
 		<option>Enfermagem</option>
 		<option>Segurança do Trabalho</option>
 		<option>Libras</option>
@@ -120,7 +122,7 @@ break;
 }
 ?>
 </div>
-<div class="form-inline"><label>Telefone:</label> <input type="text" required name="telAluno" class="form-control telefone" id="telefone" value="<?php echo $alterar_telefone; ?>"></div>
+<div class="form-inline"><label>Telefone:</label> <input type="text" required name="telProfessor" class="form-control telefone" id="telefone" value="<?php echo $alterar_telefone; ?>"></div>
 <input type="submit" name="" class="btn mt-1 text-bold laranja border-laranja bg-branco procurar pointer">
 <input type="reset" name="" class="btn mt-1 text-bold laranja border-laranja bg-branco procurar pointer">
 </form>

@@ -25,6 +25,7 @@ $usuario = $_SESSION['usuario'];
 	    	<li class="list-inline-item"><a class="laranja" data-toggle="collapse" href="#dts" aria-expanded="false" aria-controls="collapseExample">Informações do Diretor de Turma</a></li>
             <li class="list-inline-item"><a class="laranja" data-toggle="collapse" href="#cadprofessor" aria-expanded="false" aria-controls="collapseExample">Adicionar Diretor de Turma</a></li>
             <li class="list-inline-item"><a class="laranja" data-toggle="collapse" href="#cadaluno" aria-expanded="false" aria-controls="collapseExample">Adicionar Aluno </a></li>
+            <li class="list-inline-item"><a class="laranja" data-toggle="collapse" href="#cadapontador" aria-expanded="false" aria-controls="collapseExample">Adicionar Apontador </a></li>
             <li class="list-inline-item"><a class="laranja" target="_blank" data-toggle="collapse" href="#relatorio" aria-expanded="false" aria-controls="collapseExample">Gerar Relatório </a></li>
             <li class="list-inline-item"><a class="laranja" href="sair.php">Sair</a></li>
         </ul>
@@ -33,7 +34,7 @@ $usuario = $_SESSION['usuario'];
         <div class="container col-md-4 border-laranja border-radius text-center">
         <script src="./ajax.js"></script>
                 <label class="text-quarenta helveticalg">Novo Atraso</label>
-                <form name="busca" method="POST" action="cadatras.php" class="form-group">
+                <form name="busca" method="POST" action="../apontador/cadatras.php" class="form-group">
                         <input type="radio" name="serio" required value="1" class="ml-1" id="1anoo"> <label for="1anoo">1°Ano</label>
                         <input type="radio" name="serio" required value="2" class="ml-1" id="2anoo"> <label for="2anoo">2°Ano</label>
                         <input type="radio" name="serio" required value="3" class="ml-1" id="3anoo"> <label for="3anoo">3°Ano</label>
@@ -204,8 +205,16 @@ $usuario = $_SESSION['usuario'];
                 <input type="radio" name="serie" required value="1" class="ml-1" id="1a"> <label for="1a">1°Ano</label>
                 <input type="radio" name="serie" required value="2" class="ml-1" id="2a"> <label for="2a">2°Ano</label>
                 <input type="radio" name="serie" required value="3" class="ml-1 mb-2" id="3a"><label for="3a">3°Ano</label>
-                
-                <select name="curso" class="form-control p-0 mb-2" required="">
+                <script>
+                $("input[name='serie']").change(function(){
+                  if($(this).val()=="1"){
+                        $("input[name='numeroSige']").removeAttr("required");
+                  }else{
+                        $("input[name='numeroSige']").attr("required","");
+                  }
+                });
+                </script>
+                <select name="curso" class="form-control p-0 mb-2" required="required">
                         <option>Selecione o curso</option>
                         <option>Informática</option>
                         <option>Enfermagem</option>
@@ -228,11 +237,28 @@ $usuario = $_SESSION['usuario'];
                 </div>
         </div>
 
+        <div class="collapse" id="cadapontador">
+                <div class="container col-md-8 border-laranja border-radius text-justify">
+                        <label class="text-quarenta helveticalg">Cadastro de Apontador de Atraso</label>     
+        <form method="post" action="cadApontador.php" class="form-group" enctype="multipart/form-data">
+                <input type="text" name="nome" placeholder="Nome" class="form-control mb-2" required>
+                <input type="text" name="telefone" placeholder="Telefone" class="form-control mb-2 telefone"required>
+                <hr><input type="text" name="usuario" placeholder="Usuário" class="form-control mb-2" required>
+                <input type="password" name="senh1" placeholder="Senha" class="form-control mb-2" required><input type="password" name="senh2" placeholder="Confirme Senha" class="form-control mb-2" required>
+                <input type="submit" class="btn float-right text-bold laranja border-laranja bg-branco procurar pointer">
+                <input type="reset" class="btn float-right text-bold laranja border-laranja bg-branco procurar pointer">
+                <br>
+        </form>
+                </div>
+        </div>
+
+        
+
         
         <div class="collapse" id="relatorio">
                 <div class="container col-md-4 border-laranja border-radius text-center">
                 <label class="text-quarenta helveticalg">Gerar Relatório</label> 
-                <form method="get" action="gerar_relatorio.php">
+                <form method="get" action="gerar_relatorio.php" target="_blank">
                 <input type="radio" name="serie" required value="1" class="ml-1" id="1an"> <label for="1an">1°Ano</label>
                 <input type="radio" name="serie" required value="2" class="ml-1" id="2an"> <label for="2an">2°Ano</label>
                 <input type="radio" name="serie" required value="3" class="ml-1 mb-2" id="3an"><label for="3an">3°Ano</label>

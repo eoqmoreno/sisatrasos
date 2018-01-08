@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 07/01/2018 às 15:48
+-- Tempo de geração: 08/01/2018 às 06:42
 -- Versão do servidor: 10.1.28-MariaDB
 -- Versão do PHP: 7.1.10
 
@@ -68,14 +68,6 @@ CREATE TABLE `alunos` (
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Fazendo dump de dados para tabela `alunos`
---
-
-INSERT INTO `alunos` (`nome`, `foto`, `serie`, `curso`, `rg`, `cpf`, `telaluno`, `nomeResponsavel`, `telresponsavel`, `email`, `numeroSige`, `qtdAtraso`, `id`) VALUES
-('Xelinha Ateu', '../fotos/aluno/00.png', '3', 'Informática', '0000000000', '000000000', '000000000', 'oia', '000000000', '0000000000@gmail.com', '00', 3, 26),
-('George Moreno', '../fotos/aluno/3450030.png', '2', 'Informática', '00000000', '000.000.000-00', '(00) 00000-0000', 'Minha Mãe', '(00) 00000-0000', 'gmodeveloper@gmail.com', '3450030', 0, 27);
-
 -- --------------------------------------------------------
 
 --
@@ -85,20 +77,10 @@ INSERT INTO `alunos` (`nome`, `foto`, `serie`, `curso`, `rg`, `cpf`, `telaluno`,
 CREATE TABLE `apontador` (
   `id` int(11) NOT NULL,
   `nome` varchar(200) NOT NULL,
-  `endereco` varchar(200) NOT NULL,
   `telefone` varchar(100) NOT NULL,
-  `cpf` varchar(100) NOT NULL,
-  `rg` varchar(100) NOT NULL,
   `usuario` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Fazendo dump de dados para tabela `apontador`
---
-
-INSERT INTO `apontador` (`id`, `nome`, `endereco`, `telefone`, `cpf`, `rg`, `usuario`, `senha`) VALUES
-(14, 'Isabel Cristina', '', '', '', '', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -133,13 +115,6 @@ CREATE TABLE `professor` (
   `usuario` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Fazendo dump de dados para tabela `professor`
---
-
-INSERT INTO `professor` (`id`, `nome`, `imagem`, `serie`, `curso`, `telefone`, `usuario`, `senha`) VALUES
-(33, 'Alexandre Aquino', '../fotos/professor/alex.png', '3', 'Informática', '(85)99999-9999', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -176,7 +151,8 @@ ALTER TABLE `alunos`
 -- Índices de tabela `apontador`
 --
 ALTER TABLE `apontador`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `usuario` (`usuario`);
 
 --
 -- Índices de tabela `atraso`
@@ -188,7 +164,8 @@ ALTER TABLE `atraso`
 -- Índices de tabela `professor`
 --
 ALTER TABLE `professor`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `usuario` (`usuario`);
 
 --
 -- Índices de tabela `reuniao`
@@ -210,31 +187,31 @@ ALTER TABLE `administrador`
 -- AUTO_INCREMENT de tabela `alunos`
 --
 ALTER TABLE `alunos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de tabela `apontador`
 --
 ALTER TABLE `apontador`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `atraso`
 --
 ALTER TABLE `atraso`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de tabela `professor`
 --
 ALTER TABLE `professor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de tabela `reuniao`
 --
 ALTER TABLE `reuniao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
